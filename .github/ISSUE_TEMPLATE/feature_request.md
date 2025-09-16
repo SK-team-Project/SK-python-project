@@ -1,20 +1,22 @@
----
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+## ✅ 작업 유형 (Tag)
+
+- [ ] ✨ Feature 
+- [ ] 🐛 Fix 
+- [ ] 🔨 Refactoring 
+- [ ] 📝 Docs 
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## 🗒️ Issue 내용 작성
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+> 작업 내용을 명확히 작성해주세요. 구현 목적, 배경, 세부 내용 등을 포함하면 좋습니다.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+예시:
+- 로그인 API에서 JWT 토큰 생성 로직 추가
+- 기존 로그인 응답에 userId 포함하도록 수정
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+---
+
+## 🔁 기타 참고 사항 (선택)
+
+> 관련 커밋, 이슈 링크, 디자인 시안, 참고 자료 등을 첨부하세요.
