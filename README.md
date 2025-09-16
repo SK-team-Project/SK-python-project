@@ -25,11 +25,11 @@ DDD : Domain Driven Design
 ├── app.py                   
 ├── 
 ├── templates/                # HTML 템플릿 파일들
-│   ├── index.html           # 메인 페이지 (445 bytes)
-│   ├── thread_all.html      # 스레드 목록 페이지 (243 bytes)  
-│   └── user.html            # 사용자 페이지 (2,822 bytes)
+│   ├── index.html           # 메인 페이지 
+│   ├── thread_all.html      # 스레드 목록 페이지 
+│   └── user.html            # 사용자 페이지 
 ├── 
-├── static/                   # 정적 파일들 (CSS, JS, 이미지)
+├── static/                   # 정적 파일들
 │   ├── css/
 │   │   └── style.css
 │   ├── js/
