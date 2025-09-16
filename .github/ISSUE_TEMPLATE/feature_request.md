@@ -1,13 +1,20 @@
-## ✅ 작업 유형 (Tag)
-
-- [ ] ✨ Feature 
-- [ ] 🐛 Fix 
-- [ ] 🔨 Refactoring 
-- [ ] 📝 Docs 
+---
+name: Feature request
+about: Suggest an idea for this project
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
-## 🗒️ Issue 내용 작성
+**Is your feature request related to a problem? Please describe.**
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
-> 작업 내용을 명확히 작성해주세요. 구현 목적, 배경, 세부 내용 등을 포함하면 좋습니다.
+**Describe the solution you'd like**
+A clear and concise description of what you want to happen.
 
+**Describe alternatives you've considered**
+A clear and concise description of any alternative solutions or features you've considered.
+
+**Additional context**
+Add any other context or screenshots about the feature request here.
