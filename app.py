@@ -3,6 +3,7 @@ from flask import Flask
 from user.userController import user
 from thread_post.threadPostController import thread
 from thread_get_specify.threadGetSpecifyController import threadSpecBp
+from thread_get_Translate.threadGetTranslateController import translate
 from flask import render_template
 
 app = Flask(__name__)
@@ -18,6 +19,7 @@ def back():
 app.register_blueprint(user)
 app.register_blueprint(thread)
 app.register_blueprint(threadSpecBp)
+app.register_blueprint(translate)
 
 if __name__ == "__main__":
     app.run(debug=True)
