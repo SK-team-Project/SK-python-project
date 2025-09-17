@@ -2,6 +2,7 @@ from flask import Flask
 # 1. user.Controller 파일에서 생성한 user_bp 블루프린트 객체를 가져옵니다.
 from user.userController import user
 from thread_post.threadPostController import thread
+from thread_get_specify.threadGetSpecifyController import threadSpecBp
 from flask import render_template
 
 app = Flask(__name__)
@@ -16,7 +17,7 @@ def back():
 
 app.register_blueprint(user)
 app.register_blueprint(thread)
-        
+app.register_blueprint(threadSpecBp)
 
 if __name__ == "__main__":
     app.run(debug=True)

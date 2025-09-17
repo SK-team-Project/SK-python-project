@@ -35,10 +35,3 @@ def allThreads():
     db = get_db("sk27")
     threads = db['thread'].find().sort("uploadDate", -1)
     return render_template('thread_all.html', threads=threads)
-
-# 글 상세 정보 보기
-@thread.route('/detail/<thread_id>', methods=['GET'])
-def detail(thread_id):
-    db = get_db("sk27")
-    thread_data = db['thread'].find_one({"_id": ObjectId(thread_id)})
-    return render_template('thread_detail.html', thread=thread_data)
