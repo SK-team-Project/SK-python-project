@@ -6,11 +6,15 @@
 </head>
 <body>
   <h1>게시글 목록</h1>
-  <a href="{{ url_for('user.writePage') }}"> 글쓰기</a>
+  <a href="{{ url_for('threadAll.writePage') }}"> 글쓰기</a>
   <ul>
     {% for t in threads %}
       <li>
-        <strong>{{ t.threadTitle }}</strong> ({{ t.uploadDate }})<br>
+        <!-- 제목 클릭 시 상세 페이지 이동 -->
+        <a href="{{ url_for('threadAll.detail', thread_id=t._id|string) }}">
+          <strong>{{ t.threadTitle }}</strong>
+        </a>
+        ({{ t.uploadDate }})<br>
         {{ t.threadBody }}
       </li>
     {% endfor %}
