@@ -10,8 +10,6 @@ def generateCode(email):
     else :  
         sendmail(email, code)
         return True
-        
-
     
 
 def loginService(email, password):
