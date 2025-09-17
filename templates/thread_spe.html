@@ -1,19 +1,63 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style2.css')}}">
+    <title>{{ post.threadTitle }}</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Moirai+One&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        /* 제목용 Moirai One 폰트 (가독성 바닥이므로 굳이 쓰진 말것) */
+        .moirai-one-regular {
+            font-family: "Moirai One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* Gowun Dodum 폰트 */
+        .gowun-dodum-regular {
+            font-family: "Gowun Dodum", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .post-body {
+            line-height: 1.8;
+            white-space: pre-wrap; 
+        }
+    </style>
 </head>
-<body>
-  <h1>{{ post.threadTitle }}</h1>
-  <div>
-    · 작성일: {{ post.uploadDate }}
-  </div>
-  <hr>
-  <pre>내용 : {{ post.threadBody }}</pre>
-  <form>
-    <button type="summit"><a href="{{ url_for('threadAll.allThreads') }}" >게시글 목록 보기</a></button>
-  </form>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white py-3">
+                        <h1 class="h3 mb-1 gowun-dodum-regular">{{ post.threadTitle }}</h1>
+                        <div class="text-muted small">
+                            작성일: {{ post.uploadDate }}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text post-body gowun-dodum-regular">{{ post.threadBody }}</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 text-end">
+                    <a href="{{ url_for('threadAll.allThreads') }}" class="btn btn-primary gowun-dodum-regular">게시글 목록 보기</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
