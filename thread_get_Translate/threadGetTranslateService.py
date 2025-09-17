@@ -1,4 +1,4 @@
-from threadGetTranslateModel import translate_text
+from thread_get_Translate.threadGetTranslateModel import translate_text
 
 def translate_post_text(text):
     try:
