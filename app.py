@@ -10,6 +10,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/back')
+def back():
+    return render_template('thread_all.html')
+
 app.register_blueprint(user)
 app.register_blueprint(thread)
         
