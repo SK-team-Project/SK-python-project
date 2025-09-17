@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from datetime import datetime
+from datetime import datetime,UTC
 from config.mongodb import get_db
 from bson.objectid import ObjectId   # detail 조회 시 필요
 
@@ -23,7 +23,7 @@ def writePost():
     threads.insert_one({
         "threadTitle": title,
         "threadBody": body,
-        "uploadDate": datetime.utcnow()
+        "uploadDate": datetime.now(UTC).strftime('%Y-%m-%d')
     })
 
     return redirect(url_for('threadAll.allThreads')) 
