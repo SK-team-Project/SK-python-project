@@ -39,12 +39,17 @@ def login():
     else :
         print("login fail")
         return render_template('user.html')
-    
+
+# 글쓰기 페이지 (GET)
+@user.route('/thread/write', methods=['GET'])
+def writePage():
+    return render_template('thread_write.html')
+
 # 글 작성 처리 (POST)
 @user.route('/thread/write', methods=['POST'])
 def writePost():
-    db = get_db("sk27")         # DB 이름 sk27
-    threads = db['thread']      # thread 컬렉션
+    db = get_db("sk27")           # DB 이름: sk27
+    threads = db['thread']        # thread 컬렉션
 
     title = request.form['title']
     body = request.form['body']
@@ -56,7 +61,8 @@ def writePost():
     })
 
     return redirect(url_for('user.allThreads'))
-# 글 전체 보기
+
+# 글 전체 보기 (목록)
 @user.route('/thread/all', methods=['GET'])
 def allThreads():
     db = get_db("sk27")
