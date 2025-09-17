@@ -1,19 +1,67 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style2.css')}}">
+    <title>게시글 상세 보기</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+
   <h1>{{ post.threadTitle }}</h1>
-  <div>
-    · 작성일: {{ post.uploadDate }}
-  </div>
+  <div>· 작성일: {{ post.uploadDate }}</div>
   <hr>
-  <pre>내용 : {{ post.threadBody }}</pre>
-  <form>
-    <button type="summit"><a href="{{ url_for('threadAll.allThreads') }}" >게시글 목록 보기</a></button>
-  </form>
+
+  <div id="post-body" style="white-space: pre-wrap;">
+      {{ post.threadBody }}
+  </div>
+  
+  <hr>
+
+  <!-- 번역 버튼 -->
+  <button id="translate-btn">번역</button>
+
+  <!-- 번역 결과 -->
+  <div id="translated-text" style="margin-top:20px; white-space: pre-wrap;"></div>
+
+  <hr>
+
+  <!-- 뒤로가기 링크 -->
+  <a href="{{ url_for('threadAll.allThreads') }}">뒤로가기 / 게시글 목록 보기</a>
+
+  <script>
+  $(document).ready(function() {
+      $("#translate-btn").click(function() {
+          const text = $("#post-body").text().trim();
+          if(!text) {
+              $("#translated-text").text("[본문이 없습니다]");
+              return;
+          }
+
+          $(this).prop("disabled", true);
+
+          $.ajax({
+              type: "POST",
+              url: "/translate/",
+              contentType: "application/json",
+              data: JSON.stringify({ text: text }),
+              success: function(response) {
+                  if(response.translated){
+                      $("#translated-text").text(response.translated);
+                  } else if(response.error){
+                      $("#translated-text").text("번역 오류: " + response.error);
+                  }
+                  $("#translate-btn").prop("disabled", false);
+              },
+              error: function(err) {
+                  console.error(err);
+                  $("#translated-text").text("번역 중 서버 오류 발생");
+                  $("#translate-btn").prop("disabled", false);
+              }
+          });
+      });
+  });
+  </script>
+
 </body>
 </html>
