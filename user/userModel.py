@@ -75,4 +75,3 @@ def checkMail(email) :
         return False
     else :
         return True
-
