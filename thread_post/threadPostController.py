@@ -5,14 +5,15 @@ from user.userService import loginService, generateCode
 
 thread = Blueprint('user', __name__, url_prefix='/user')
 
-@thread = Blueprint('user', __name__, url_prefix='/user')
-.route('/thread/write', methods=['GET'])
+@thread.route('/thread/write', methods=['GET'])
+
+
 def writePage():
     return render_template('thread_write.html')
 
 # 글 작성 처리 (POST)
-@thread = Blueprint('user', __name__, url_prefix='/user')
-.route('/thread/write', methods=['POST'])
+@thread.route('/thread/write', methods=['POST'])
+
 def writePost():
     db = get_db("sk27")          
     threads = db['thread']       
