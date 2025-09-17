@@ -11,7 +11,7 @@
     {% for t in threads %}
       <li>
         <!-- 제목 클릭 시 상세 페이지 이동 -->
-        <a href="{{ url_for('threadAll.detail', thread_id=t._id|string) }}">
+        <a href="{{ url_for('threadSpec.getOne', thread_id=t._id|string) }}">
           <strong>{{ t.threadTitle }}</strong>
         </a>
         ({{ t.uploadDate }})<br>
