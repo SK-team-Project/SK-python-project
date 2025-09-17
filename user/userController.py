@@ -6,7 +6,7 @@ from user.userService import loginService, generateCode
 user = Blueprint('user', __name__, url_prefix='/user')
 
 
-@user.route('/')
+@user.route('/') # /user
 def index():
     return render_template('user.html')
 
