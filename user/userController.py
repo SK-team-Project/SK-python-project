@@ -35,17 +35,7 @@ def login():
     
     if check:
         print("login success")
-        return render_template('thread_all.html') # 성공 시 thread_all.html로 이동
+        return redirect(url_for('threadAll.allThreads'))  # 성공 시 thread_all.html로 이동
     else :
         print("login fail")
         return render_template('user.html')
-#=======================================================================================================
-
-
-
-# 글 전체 보기 (목록)
-@user.route('/thread/all', methods=['GET'])
-def allThreads():
-    db = get_db("sk27")
-    threads = db['thread'].find().sort("uploadDate", -1)
-    return render_template('thread_all.html', threads=threads)
