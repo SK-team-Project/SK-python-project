@@ -5,6 +5,7 @@ import smtplib
 from dotenv import load_dotenv
 from email.mime.text import MIMEText
 import os
+import re
 
 load_dotenv()
 
@@ -62,3 +63,15 @@ def userPassword(email, password):
         return True
     
     return False
+
+#이메일 정규식 표현 추가
+def checkMail(email) :
+    # email 정규식 패턴
+    email_pattern = r'[\w\.-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}'
+
+    check = bool(re.fullmatch(email_pattern, email))
+
+    if check == False:
+        return False
+    else :
+        return True

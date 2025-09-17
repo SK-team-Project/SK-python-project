@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>게시글 목록</title>
 </head>
 <body>
-    <h1>
-        thread all html
-    </h1>
+  <h1>게시글 목록</h1>
+  <a href="{{ url_for('threadAll.writePage') }}"> 글쓰기</a>
+  <ul>
+    {% for t in threads %}
+      <li>
+        <!-- 제목 클릭 시 상세 페이지 이동 -->
+        <a href="{{ url_for('threadAll.detail', thread_id=t._id|string) }}">
+          <strong>{{ t.threadTitle }}</strong>
+        </a>
+        ({{ t.uploadDate }})<br>
+        {{ t.threadBody }}
+      </li>
+    {% endfor %}
+  </ul>
 </body>
 </html>
