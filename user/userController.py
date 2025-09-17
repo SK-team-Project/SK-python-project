@@ -14,10 +14,15 @@ def index():
 @user.route('/code', methods=['POST'])
 def code():
     email = request.json.get('email')
-    generateCode(email)
+    check = generateCode(email)
+
+    if check == False:
+        return jsonify({"success": False})
+    else :
+        # 작업이 성공했음을 알리는 JSON 응답을 반환합니다.
+        return jsonify({"success": True})
+        
     
-    # 작업이 성공했음을 알리는 JSON 응답을 반환합니다.
-    return jsonify({"success": True})
 
 
 # 로그인 로직
