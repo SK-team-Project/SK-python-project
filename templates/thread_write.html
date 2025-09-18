@@ -22,11 +22,20 @@
         body {
             font-family: "Gowun Dodum", serif;
         }
+        /* 뒤로가기 버튼 스타일 */
+        .back-button-top-left {
+            position: absolute;
+            background-color: red;
+            top: 20px; /* 상단에서 20px 떨어지게 */
+            right: 20px; /* 왼쪽에서 20px 떨어지게 */
+        }
     </style>
 </head>
 <body class="bg-light">
 
     <div class="container mt-5">
+        <a href="{{ url_for('threadAll.allThreads') }}" class="btn btn-secondary back-button-top-left">뒤로가기</a>
+
         <div class="row justify-content-center">
             <div class="col-lg-8">
 
@@ -47,7 +56,6 @@
                             </div>
 
                             <div class="d-flex justify-content-end">
-                                <a href="{{ url_for('threadAll.allThreads') }}" class="btn btn-secondary me-2">뒤로가기</a>
                                 <button type="submit" class="btn btn-primary">등록</button>
                             </div>
                         </form>
