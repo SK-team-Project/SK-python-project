@@ -6,6 +6,7 @@ Sk 쉴더스 Python Project 1팀입니다.
 * notion - gartchat 사용 및 환경변수 공유 수단
 * git - code upload
 * ZEP - communication
+* AWS - Release
 
 ## Git Rules
 1. git issue 템플릿은 "SK 이슈 템플릿"을 사용할 것
