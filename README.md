@@ -1,9 +1,15 @@
-# SK 쉴더스 Python project
-Sk 쉴더스 Python Project 입니다.
+# SK 쉴더스 Python project team 1
+Sk 쉴더스 Python Project 1팀입니다.
 
-## Git Rows
+## Tools
+* VS Code - python3
+* notion - gartchat 사용 및 환경변수 공유 수단
+* git - code upload
+* ZEP - communication
+
+## Git Rules
 1. git issue 템플릿은 "SK 이슈 템플릿"을 사용할 것
-2. issue 제목은 [feat], [refac], [document], [fix], [hotfix] + 제목으로 할 것
+2. issue 제목은 [feat], [refac], [document], [fix] + 제목으로 할 것
 3. issue 내용은 작업 내용을 적을 것
 4. issue 를 파고 branch 생성 이후 본인 작업 진행
 5. branch 작업이 끝난 이후 PR 올리기
@@ -11,6 +17,14 @@ Sk 쉴더스 Python Project 입니다.
 
 ## Code Convention
 1. 함수와 변수명은 반드시 Carmel Case를 사용할 것
+
+## Commit Message Convention
+| Tag Name       | Description                                    |
+|----------------|------------------------------------------------|
+| :sparkles: Feature    | 새로운 기능을 추가                              |
+| :bug: Fix          | 버그 수정                                      |
+| :hammer:  Refactoring | 프로덕션 코드 리팩토링                         |
+| :memo: Docs        | 문서 수정 및 기타 코드 수정 (CICD)                                      |
 
 ## File 구조
 DDD : Domain Driven Design
@@ -48,6 +62,9 @@ DDD : Domain Driven Design
 │   └── userModel.py
 </code>  
 </pre>
+
+## Server Architecture
+<img width="1141" height="571" alt="1팀 프로젝트 AWS 아키텍처" src="https://github.com/user-attachments/assets/d541410d-8e22-48c5-a617-b2ef501742b6" />
 
 ## Cloud URL
 [cloudURL](http://13.125.164.116)
