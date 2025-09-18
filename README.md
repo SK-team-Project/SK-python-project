@@ -2,7 +2,7 @@
 Sk 쉴더스 Python Project 1팀입니다.
 
 ## Tools
-* VS Code - python3
+* VS Code - python3 (Flask), CSS(bootstrap)
 * notion - gartchat 사용 및 환경변수 공유 수단
 * git - code upload
 * ZEP - communication
