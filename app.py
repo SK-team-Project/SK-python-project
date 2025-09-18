@@ -16,7 +16,7 @@ def index():
 def back():
     return render_template('thread_all.html')
 
-app.register_blueprint(user)
+app.register_blueprint(user) 
 app.register_blueprint(thread)
 app.register_blueprint(threadSpecBp)
 app.register_blueprint(translate)
