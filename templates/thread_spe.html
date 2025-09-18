@@ -23,9 +23,19 @@
       white-space: pre-wrap;
       min-height: 100px;
     }
+    /* ▼▼▼ [수정] 오른쪽 상단 버튼을 위한 CSS 추가 ▼▼▼ */
+    .list-button-top-right {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
   </style>
 </head>
 <body class="bg-light">
+
+<a href="{{ url_for('threadAll.allThreads') }}" class="btn btn-primary gowun-dodum-regular list-button-top-right">
+    게시글 목록 보기
+</a>
 
 <div class="container mt-5">
   <div class="row justify-content-center">
@@ -59,13 +69,7 @@
         </div>
       </div>
 
-      <div class="mt-4 text-end">
-        <a href="{{ url_for('threadAll.allThreads') }}" class="btn btn-primary gowun-dodum-regular">
-          게시글 목록 보기
-        </a>
       </div>
-
-    </div>
   </div>
 </div>
 
