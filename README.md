@@ -66,5 +66,30 @@ DDD : Domain Driven Design
 ## Server Architecture
 <img width="1141" height="571" alt="1팀 프로젝트 AWS 아키텍처" src="https://github.com/user-attachments/assets/d541410d-8e22-48c5-a617-b2ef501742b6" />
 
+## API
+<pre>
+  <code>
+API 구현
+
+/user
+	/code : 인증 코드 요청 및 메일 전송
+	/login : 로그인 로직
+
+/thread/<thread_id> : 게시글 상세 조회
+
+/threadAll
+	/write : 글 작성 페이지로 라우팅
+	/upload : 글 작성
+	/all : 글 전체 조회
+	/dailySecure : 데일리시큐 RSS
+	/secureNews : 보안 뉴스 RSS
+	/downloadDaily : 데일리시큐 RSS 엑셀 파일 다운로드
+	/downloadSecure : 보안 뉴스 RSS 엑셀 파일 다운로드
+
+/translate/ : 게시글 글 번역
+
+  </code>
+</pre>
+
 ## Cloud URL
 [cloudURL](http://13.125.164.116)
