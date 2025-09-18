@@ -48,11 +48,13 @@
             background-color: #666B85;
         }
 
-        /* [추가] 뒤로가기 버튼을 우측 상단에 배치하기 위한 스타일 */
-        .top-right-button {
+        /* [수정] 버튼들을 우측 상단에 배치하기 위한 컨테이너 스타일 */
+        .top-right-container {
             position: absolute;
             top: 25px;
             right: 5%; /* table-title의 max-width에 맞춰 정렬 */
+            display: flex;
+            gap: 10px; /* 버튼 사이 간격 */
         }
 
         .table-fill {
@@ -114,6 +116,14 @@
             word-break: break-all;
         }
         
+        /* [추가] 긴 텍스트를 위한 스크롤 박스 스타일 */
+        .scrollable-box {
+            max-height: 150px; /* 박스의 최대 높이 지정 */
+            overflow-y: auto;  /* 내용이 넘칠 경우 세로 스크롤 생성 */
+            padding-right: 10px; /* 스크롤바와 텍스트 사이 여백 */
+            white-space: pre-wrap; /* 공백과 줄바꿈 유지하며 자동 줄바꿈 */
+        }
+
         td:first-child {
             font-weight: 500;
         }
@@ -132,7 +142,10 @@
         <h3>데일리 시큐 이슈</h3>
     </div>
 
-    <a href="{{ url_for('threadAll.allThreads') }}" class="write-link top-right-button">뒤로가기</a>
+    <div class="top-right-container">
+        <a href="{{ url_for('threadAll.downloadDaily') }}" class="write-link">다운로드</a>
+        <a href="{{ url_for('threadAll.allThreads') }}" class="write-link">뒤로가기</a>
+    </div>
 
     <table class="table-fill">
         <thead>
@@ -147,7 +160,9 @@
             <tr>
                 <td>{{ entry.title }}</td>
                 <td><a href="{{ entry.link }}" target="_blank" rel="noopener noreferrer">{{ entry.link }}</a></td>
-                <td>{{ entry.description }}</td>
+                <td>
+                    <div class="scrollable-box">{{ entry.description | striptags }}</div>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

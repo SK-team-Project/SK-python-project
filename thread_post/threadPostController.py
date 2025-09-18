@@ -1,9 +1,9 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, send_file
 from datetime import datetime, timezone  # UTC는 timezone.utc로 사용 가능
 from config.mongodb import get_db
 from bson.objectid import ObjectId
-from config.RSS import dailySecure
-from config.RSS import sercureRule
+from config.RSS import dailySecure, downloadDailySecure
+from config.RSS import sercureRule, downloadsercureRule
 
 thread = Blueprint('threadAll', __name__, url_prefix='/threadAll')
 
@@ -50,3 +50,23 @@ def dailyNews():
 def secureNews():
     feed = sercureRule()
     return render_template('secureRule.html', feed=feed)
+
+@thread.route('/downloadDaily', methods=['GET'])
+def downloadDaily():
+    buffer, filename = downloadDailySecure()
+    return send_file(
+        buffer,
+        download_name=filename,
+        mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        as_attachment=True
+    )
+
+@thread.route('/downloadSecure', methods=['GET'])
+def downloadSecure():
+    buffer, filename = downloadsercureRule()
+    return send_file(
+        buffer,
+        download_name=filename,
+        mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        as_attachment=True
+    )
